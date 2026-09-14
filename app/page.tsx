@@ -56,7 +56,7 @@ export default function Home() {
       {/* NAVIGATION */}
       <header className="site-header">
         <div className="container nav-container">
-          <a href="#home" className="brand">
+          <a href="/" className="brand">
             <div className="brand-symbol">SS</div>
 
             <div className="brand-name">
@@ -66,22 +66,22 @@ export default function Home() {
           </a>
 
           <nav className="nav-links">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#packages">Packages</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="/">Home</a>
+            <a href="/services">Services</a>
+            <a href="/packages">Packages</a>
+            <a href="/gallery">Gallery</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
           </nav>
 
-          <a href="#quote" className="btn btn-small">
+          <a href="/quote" className="btn btn-small">
             Get a Quote
           </a>
         </div>
       </header>
 
       {/* HERO */}
-      <section id="home" className="hero premium-hero">
+      <section className="hero premium-hero">
         <div className="hero-glow hero-glow-one"></div>
         <div className="hero-glow hero-glow-two"></div>
 
@@ -103,11 +103,11 @@ export default function Home() {
             </p>
 
             <div className="hero-buttons">
-              <a href="#quote" className="btn">
+              <a href="/quote" className="btn">
                 Get a Quote
               </a>
 
-              <a href="#services" className="btn btn-outline">
+              <a href="/services" className="btn btn-outline">
                 Explore Services
               </a>
             </div>
@@ -193,8 +193,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section id="services" className="section dark-section services-section">
+      {/* SERVICES PREVIEW */}
+      <section className="section dark-section services-section">
         <div className="container">
           <div className="section-heading">
             <p className="eyebrow">WHAT WE DO</p>
@@ -212,7 +212,10 @@ export default function Home() {
 
           <div className="service-grid">
             {services.map((service) => (
-              <div className="service-card premium-service" key={service.number}>
+              <div
+                className="service-card premium-service"
+                key={service.number}
+              >
                 <span className="card-number">{service.number}</span>
 
                 <div className="service-icon">✦</div>
@@ -221,15 +224,21 @@ export default function Home() {
 
                 <p>{service.text}</p>
 
-                <a href="#quote">Explore Service →</a>
+                <a href="/services">Explore Service →</a>
               </div>
             ))}
+          </div>
+
+          <div className="hero-buttons">
+            <a href="/services" className="btn btn-outline">
+              View All Services
+            </a>
           </div>
         </div>
       </section>
 
-      {/* PACKAGES */}
-      <section id="packages" className="section packages-section">
+      {/* PACKAGES PREVIEW */}
+      <section className="section packages-section">
         <div className="container">
           <div className="section-heading centered">
             <p className="eyebrow">POPULAR PACKAGES</p>
@@ -265,17 +274,23 @@ export default function Home() {
 
                 <p>{item.description}</p>
 
-                <a href="#quote" className="package-link">
+                <a href="/quote" className="package-link">
                   Request Details →
                 </a>
               </div>
             ))}
           </div>
+
+          <div className="hero-buttons">
+            <a href="/packages" className="btn btn-outline">
+              View All Packages
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* GALLERY PLACEHOLDER */}
-      <section id="gallery" className="section gallery-section">
+      {/* GALLERY PREVIEW */}
+      <section className="section gallery-section">
         <div className="container">
           <div className="section-heading centered">
             <p className="eyebrow">OUR WORK</p>
@@ -312,11 +327,17 @@ export default function Home() {
               <p>Corporate</p>
             </div>
           </div>
+
+          <div className="hero-buttons">
+            <a href="/gallery" className="btn btn-outline">
+              View Full Gallery
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="section about-section">
+      {/* ABOUT PREVIEW */}
+      <section className="section about-section">
         <div className="container about-grid">
           <div className="about-mark">
             <span>SS</span>
@@ -338,15 +359,15 @@ export default function Home() {
               from beginning to end.
             </p>
 
-            <a href="#quote" className="btn">
-              Plan Your Event
+            <a href="/about" className="btn">
+              Discover Our Story
             </a>
           </div>
         </div>
       </section>
 
       {/* QUOTE CTA */}
-      <section id="quote" className="section quote-section">
+      <section className="section quote-section">
         <div className="container quote-box">
           <div className="gold-line center-line"></div>
 
@@ -362,14 +383,14 @@ export default function Home() {
             requirements and prepare a suitable quotation.
           </p>
 
-          <a href="#contact" className="btn">
+          <a href="/quote" className="btn">
             Request A Quote
           </a>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer id="contact" className="site-footer">
+      <footer className="site-footer">
         <div className="container footer-content">
           <div>
             <div className="footer-logo">SHAREEF SONS</div>
@@ -404,4 +425,4 @@ export default function Home() {
       </footer>
     </main>
   );
-            }
+        }
