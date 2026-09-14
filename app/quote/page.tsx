@@ -1,391 +1,314 @@
-const eventTypes = [
-  "Wedding",
-  "Mehndi",
-  "Mayon",
-  "Dholki",
-  "Nikah",
-  "Walima",
-  "Birthday",
-  "Milad",
-  "Qawali",
-  "Corporate Event",
-  "Brand Activation",
-  "Exhibition",
-  "Stall Fabrication",
-  "Other",
-];
+"use client";
+
+import { FormEvent, useState } from "react";
 
 export default function QuotePage() {
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubmitted(true);
+  }
+
   return (
     <main>
-      {/* Hero */}
-      <section className="premium-hero">
-        <div className="container hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow">REQUEST A QUOTE</p>
-
-            <h1>
-              Tell Us About
-              <br />
-              <span>Your Event.</span>
-            </h1>
-
-            <p className="hero-description">
-              Share your event details and requirements with us. Our team will
-              review your request and prepare the next steps for your event.
-            </p>
-
-            <div className="hero-actions">
-              <a href="/packages" className="btn btn-gold">
-                View Packages
-              </a>
-
-              <a href="/contact" className="btn btn-outline">
-                Contact Us
-              </a>
-            </div>
-          </div>
-
-          <div className="hero-visual">
-            <div className="hero-visual-inner">
-              <span>SS</span>
-              <p>GET A QUOTE</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quote Form */}
-      <section className="section section-dark">
+      {/* HERO */}
+      <section className="page-hero">
         <div className="container">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">EVENT DETAILS</p>
-
-              <h2>
-                Build Your
-                <br />
-                <span>Event Request.</span>
-              </h2>
-            </div>
-
-            <p>
-              The more details you provide, the better our team can understand
-              your requirements.
-            </p>
-          </div>
-
-          <form className="contact-form">
-            {/* Customer Information */}
-            <div className="form-section-title">
-              <span>01</span>
-              <h3>Your Information</h3>
-            </div>
-
-            <div className="form-grid">
-              <div className="form-group">
-                <label htmlFor="customerName">Full Name</label>
-
-                <input
-                  id="customerName"
-                  name="customerName"
-                  type="text"
-                  placeholder="Enter your full name"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="phone">Phone / WhatsApp</label>
-
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="03XX XXXXXXX"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Enter your email"
-                />
-              </div>
-            </div>
-
-            {/* Event Information */}
-            <div className="form-section-title">
-              <span>02</span>
-              <h3>Event Information</h3>
-            </div>
-
-            <div className="form-grid">
-              <div className="form-group">
-                <label htmlFor="eventType">Event Type</label>
-
-                <select id="eventType" name="eventType" defaultValue="">
-                  <option value="" disabled>
-                    Select event type
-                  </option>
-
-                  {eventTypes.map((event) => (
-                    <option key={event} value={event}>
-                      {event}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="eventDate">Event Date</label>
-
-                <input id="eventDate" name="eventDate" type="date" />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="eventTime">Event Time</label>
-
-                <input id="eventTime" name="eventTime" type="time" />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="guests">Number of Guests</label>
-
-                <input
-                  id="guests"
-                  name="guests"
-                  type="number"
-                  min="1"
-                  placeholder="Example: 100"
-                />
-              </div>
-
-              <div className="form-group full-width">
-                <label htmlFor="location">Event Location</label>
-
-                <input
-                  id="location"
-                  name="location"
-                  type="text"
-                  placeholder="Enter venue or event location"
-                />
-              </div>
-            </div>
-
-            {/* Services */}
-            <div className="form-section-title">
-              <span>03</span>
-              <h3>Services Required</h3>
-            </div>
-
-            <div className="checkbox-grid">
-              <label className="checkbox-card">
-                <input type="checkbox" name="services" value="Decoration" />
-                <span>Decoration</span>
-              </label>
-
-              <label className="checkbox-card">
-                <input type="checkbox" name="services" value="Stage" />
-                <span>Stage</span>
-              </label>
-
-              <label className="checkbox-card">
-                <input type="checkbox" name="services" value="Lighting" />
-                <span>Lighting</span>
-              </label>
-
-              <label className="checkbox-card">
-                <input type="checkbox" name="services" value="Seating" />
-                <span>Seating</span>
-              </label>
-
-              <label className="checkbox-card">
-                <input type="checkbox" name="services" value="Catering" />
-                <span>Catering</span>
-              </label>
-
-              <label className="checkbox-card">
-                <input
-                  type="checkbox"
-                  name="services"
-                  value="Event Management"
-                />
-                <span>Event Management</span>
-              </label>
-
-              <label className="checkbox-card">
-                <input
-                  type="checkbox"
-                  name="services"
-                  value="Brand Activation"
-                />
-                <span>Brand Activation</span>
-              </label>
-
-              <label className="checkbox-card">
-                <input
-                  type="checkbox"
-                  name="services"
-                  value="Exhibition"
-                />
-                <span>Exhibition / Stall</span>
-              </label>
-            </div>
-
-            {/* Budget */}
-            <div className="form-section-title">
-              <span>04</span>
-              <h3>Budget & Requirements</h3>
-            </div>
-
-            <div className="form-grid">
-              <div className="form-group">
-                <label htmlFor="budget">Estimated Budget</label>
-
-                <select id="budget" name="budget" defaultValue="">
-                  <option value="" disabled>
-                    Select budget range
-                  </option>
-
-                  <option value="under-30000">Under Rs. 30,000</option>
-                  <option value="30000-50000">Rs. 30,000 - 50,000</option>
-                  <option value="50000-80000">Rs. 50,000 - 80,000</option>
-                  <option value="80000-150000">
-                    Rs. 80,000 - 150,000
-                  </option>
-                  <option value="150000-plus">Rs. 150,000+</option>
-                  <option value="not-sure">Not Sure</option>
-                </select>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="venue">Venue Type</label>
-
-                <select id="venue" name="venue" defaultValue="">
-                  <option value="" disabled>
-                    Select venue type
-                  </option>
-
-                  <option value="indoor">Indoor</option>
-                  <option value="outdoor">Outdoor</option>
-                  <option value="both">Indoor + Outdoor</option>
-                  <option value="not-decided">Not Decided</option>
-                </select>
-              </div>
-
-              <div className="form-group full-width">
-                <label htmlFor="requirements">
-                  Additional Requirements
-                </label>
-
-                <textarea
-                  id="requirements"
-                  name="requirements"
-                  rows={7}
-                  placeholder="Tell us about your preferred theme, stage, lighting, seating, catering, colors or any other requirements..."
-                ></textarea>
-              </div>
-            </div>
-
-            {/* Submit */}
-            <div className="quote-submit">
-              <button type="button" className="btn btn-gold">
-                Submit Quote Request
-              </button>
-
-              <p className="form-note">
-                Your request is not a confirmed booking. Our team will review
-                your requirements and contact you regarding the quotation.
-              </p>
-            </div>
-          </form>
+          <p className="eyebrow">GET A QUOTE</p>
+          <h1>Tell Us About Your Event</h1>
+          <p>
+            Share your event requirements and our team will review them and
+            contact you for the next step.
+          </p>
         </div>
       </section>
 
-      {/* Process */}
+      {/* FORM */}
       <section className="section">
         <div className="container">
-          <div className="section-heading">
+          <div className="quote-layout">
             <div>
-              <p className="eyebrow">WHAT HAPPENS NEXT?</p>
+              <p className="eyebrow">QUOTE REQUEST</p>
+              <h2>Plan Your Event With Us</h2>
+              <p>
+                Fill in the details below. Customized pricing is reviewed by
+                our team before any final quotation is confirmed.
+              </p>
 
-              <h2>
-                From Request
-                <br />
-                To <span>Event.</span>
-              </h2>
+              <div className="info-card">
+                <h3>Important</h3>
+                <p>
+                  Submitting this form is a quote request only. It does not
+                  automatically confirm a booking.
+                </p>
+              </div>
+            </div>
+
+            <div className="quote-form-card">
+              {submitted ? (
+                <div className="success-message">
+                  <p className="eyebrow">REQUEST RECEIVED</p>
+                  <h2>Thank You!</h2>
+                  <p>
+                    Your quote request has been received successfully. Our
+                    team will review your requirements and contact you.
+                  </p>
+
+                  <a href="/" className="btn btn-primary">
+                    Back to Home
+                  </a>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <div className="form-grid">
+                    <div className="form-group">
+                      <label htmlFor="name">Full Name *</label>
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Your full name"
+                        required
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="phone">Phone / WhatsApp *</label>
+                      <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="03XX XXXXXXX"
+                        required
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="email">Email</label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="you@example.com"
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="eventType">Event Type *</label>
+                      <select id="eventType" name="eventType" required>
+                        <option value="">Select event type</option>
+                        <option>Wedding</option>
+                        <option>Mehndi</option>
+                        <option>Mayon</option>
+                        <option>Dholki</option>
+                        <option>Nikah</option>
+                        <option>Barat</option>
+                        <option>Walima</option>
+                        <option>Birthday</option>
+                        <option>Milad</option>
+                        <option>Qawali</option>
+                        <option>Dawat</option>
+                        <option>Corporate Event</option>
+                        <option>Brand Activation</option>
+                        <option>Exhibition</option>
+                        <option>Stall Fabrication</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="eventDate">Event Date *</label>
+                      <input
+                        id="eventDate"
+                        name="eventDate"
+                        type="date"
+                        required
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="guests">Number of Guests *</label>
+                      <input
+                        id="guests"
+                        name="guests"
+                        type="number"
+                        min="1"
+                        placeholder="e.g. 100"
+                        required
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="location">Event Location *</label>
+                      <input
+                        id="location"
+                        name="location"
+                        type="text"
+                        placeholder="Event venue / area"
+                        required
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="budget">Estimated Budget</label>
+                      <select id="budget" name="budget">
+                        <option value="">Select budget</option>
+                        <option>Under Rs. 30,000</option>
+                        <option>Rs. 30,000 - Rs. 50,000</option>
+                        <option>Rs. 50,000 - Rs. 80,000</option>
+                        <option>Rs. 80,000 - Rs. 150,000</option>
+                        <option>Rs. 150,000+</option>
+                        <option>Not decided yet</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label>Required Services</label>
+
+                    <div className="checkbox-grid">
+                      <label className="checkbox-item">
+                        <input type="checkbox" name="services" value="Decoration" />
+                        <span>Event Decoration</span>
+                      </label>
+
+                      <label className="checkbox-item">
+                        <input type="checkbox" name="services" value="Stage" />
+                        <span>Stage Setup</span>
+                      </label>
+
+                      <label className="checkbox-item">
+                        <input type="checkbox" name="services" value="Lighting" />
+                        <span>Lighting</span>
+                      </label>
+
+                      <label className="checkbox-item">
+                        <input type="checkbox" name="services" value="Seating" />
+                        <span>Seating</span>
+                      </label>
+
+                      <label className="checkbox-item">
+                        <input type="checkbox" name="services" value="Catering" />
+                        <span>Catering</span>
+                      </label>
+
+                      <label className="checkbox-item">
+                        <input
+                          type="checkbox"
+                          name="services"
+                          value="Event Management"
+                        />
+                        <span>Event Management</span>
+                      </label>
+
+                      <label className="checkbox-item">
+                        <input
+                          type="checkbox"
+                          name="services"
+                          value="Brand Activation"
+                        />
+                        <span>Brand Activation</span>
+                      </label>
+
+                      <label className="checkbox-item">
+                        <input
+                          type="checkbox"
+                          name="services"
+                          value="Exhibition"
+                        />
+                        <span>Exhibition / Stall</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="requirements">
+                      Additional Requirements
+                    </label>
+
+                    <textarea
+                      id="requirements"
+                      name="requirements"
+                      rows={6}
+                      placeholder="Tell us anything else about your event..."
+                    ></textarea>
+                  </div>
+
+                  <button type="submit" className="btn btn-primary">
+                    Submit Quote Request
+                  </button>
+                </form>
+              )}
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="categories-grid">
-            <div className="category-card">
-              <span>01</span>
-              <h3>Submit Request</h3>
+      {/* PROCESS */}
+      <section className="section section-dark">
+        <div className="container">
+          <div className="section-heading">
+            <p className="eyebrow">HOW IT WORKS</p>
+            <h2>From Request to Event</h2>
+          </div>
+
+          <div className="cards-grid">
+            <div className="service-card">
+              <span className="card-number">01</span>
+              <h3>Send Request</h3>
               <p>
-                Send us your event details, requirements and estimated budget.
+                Tell us about your event, guests, location and required
+                services.
               </p>
             </div>
 
-            <div className="category-card">
-              <span>02</span>
-              <h3>Team Review</h3>
+            <div className="service-card">
+              <span className="card-number">02</span>
+              <h3>We Review</h3>
               <p>
-                Our team reviews your requirements and checks the event
-                details.
+                Our team reviews your requirements and prepares the next
+                steps.
               </p>
             </div>
 
-            <div className="category-card">
-              <span>03</span>
-              <h3>Quotation</h3>
+            <div className="service-card">
+              <span className="card-number">03</span>
+              <h3>Final Quote</h3>
               <p>
-                We prepare a suitable quotation based on your confirmed
-                requirements.
+                After discussion and confirmation, we provide the appropriate
+                quotation.
               </p>
             </div>
 
-            <div className="category-card">
-              <span>04</span>
+            <div className="service-card">
+              <span className="card-number">04</span>
               <h3>Booking</h3>
               <p>
-                After your approval, the booking process can move forward.
+                Once the details are finalized, your event can move toward
+                booking and execution.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Safety / Pricing Note */}
-      <section className="section section-dark">
+      {/* CTA */}
+      <section className="section">
         <div className="container">
-          <div className="quote-box">
-            <div>
-              <p className="eyebrow">PLEASE NOTE</p>
+          <div className="cta-box">
+            <p className="eyebrow">SHAREEF SONS EVENTS ORGANIZER</p>
+            <h2>Need Help Before Requesting a Quote?</h2>
+            <p>
+              Contact our team to discuss your event requirements.
+            </p>
 
-              <h2>
-                Every Event Is
-                <br />
-                <span>Different.</span>
-              </h2>
-
-              <p>
-                Package prices shown on the website are starting options.
-                Customized requirements may change the final quotation. No
-                booking or customized price is confirmed until reviewed and
-                approved by Shareef Sons Events Organizer.
-              </p>
-            </div>
-
-            <a href="/contact" className="btn btn-outline">
-              Contact Team
+            <a href="/contact" className="btn btn-primary">
+              Contact Us
             </a>
           </div>
         </div>
       </section>
     </main>
   );
-                  }
+}
